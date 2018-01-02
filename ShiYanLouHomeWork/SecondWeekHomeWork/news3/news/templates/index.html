@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  
+  
+  
+  </head>
+  <body>
+  {% for x in h %}
+  <ul>
+      {% set r=x.id %}
+      <li><a href="http://127.0.0.1:3000/files/{{r}}">{{ x.title  }} </a> 
+          
+             <span>{{ a.tags(r) }}</span>
+          
+      </li>
+  </ul>
+  {% endfor %}
+  
+  </body>
+</html>
