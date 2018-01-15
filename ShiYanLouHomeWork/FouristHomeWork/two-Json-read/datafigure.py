@@ -3,38 +3,33 @@ import json,sys
 import pandas as pd
 import matplotlib.pyplot as plt
 from pandas import Series,DataFrame
+import numpy as np
 
 class StudentLearn():
-    def analysis(self,user_id):
-        times = 0
-        minutes = 0
-        except ValueError:
-            return 0,0
-
-
-         times = us[us['user_id']==int(user_id)].minutes.count()
-         minutes = us[us['user_id']==int(user_id)].minutes.sum()
-         return times,minutes
+    def analysis(self):
+        self.minutes_dict = self.StudentData[['user_id','minutes']].groupby('user_id').sum()
+        return self.minutes_dict
     
     def __init__(self):
          try:
             self.StudentData = pd.read_json(user_study.json)
          except ValueError:
-             return None
+            return None
 
-    def piant(self):
+    def draw(self):
           fig = plt.figure()
           ax = fig.add_subplot(1,1,1)
 
-          ax.set_title("Study")
+          ax.set_title("StudyData")
 
-          major_ticks = np.arange()
-          minor_ticks = np.arange()
+          id_major_ticks = np.arange(0,224000,4000)
+          id_minor_ticks = np.arange(0,224000,500)
+          minu_major_ticks = np.arange(0,500,50)
+          minu_minor_ticks = np.arange(0,500,5)
+          ax.set_xticks(id_major_ticks)
+          ax.set_xticks(id_minor_ticks)
+          ax.set_yticks(minu_major_ticks)
+          ax.set_yticks(minu_major_ticks)
 
-          ax.set_xticks()
-          ax.set_xticks()
-          ax.set_yticks()
-          ax.set_yticks()
-
-          ax.set_xlabel()
-          ax.set_ylabel()
+          ax.set_ylabel('Study Time')
+          ax.set_xlabel('User ID')
